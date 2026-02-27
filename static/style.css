@@ -1,0 +1,160 @@
+/* ─── Reset & global ─── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { font-size: 16px; scroll-behavior: smooth; }
+body {
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+    background: #f0f2f5;
+    color: #1e293b;
+    line-height: 1.6;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* ─── Header ─── */
+header {
+    background: linear-gradient(135deg, #4f46e5, #7c3aed);
+    color: #fff;
+    padding: 2rem 1.5rem 1.8rem;
+    text-align: center;
+}
+.header-inner { max-width: 900px; margin: 0 auto; }
+.logo { display: flex; align-items: center; justify-content: center; gap: .6rem; }
+.logo h1 { font-size: 1.6rem; font-weight: 700; }
+.tagline { margin-top: .4rem; opacity: .85; font-size: .95rem; }
+
+/* ─── Main ─── */
+main { max-width: 1100px; width: 100%; margin: -1.2rem auto 2rem; padding: 0 1rem; flex: 1; }
+
+/* ─── Cards ─── */
+.card {
+    background: #fff;
+    border-radius: 14px;
+    box-shadow: 0 1px 3px rgba(0,0,0,.08), 0 4px 12px rgba(0,0,0,.04);
+    padding: 2rem;
+    margin-bottom: 1.5rem;
+}
+.card h2, .card h3 { font-weight: 600; }
+.hint { color: #64748b; font-size: .88rem; margin-top: .3rem; margin-bottom: 1rem; }
+
+/* ─── Step badges ─── */
+.step-badge {
+    display: inline-flex; align-items: center; justify-content: center;
+    width: 28px; height: 28px; border-radius: 50%;
+    background: #6366f1; color: #fff; font-weight: 700; font-size: .85rem;
+    margin-right: .4rem; vertical-align: middle;
+}
+
+/* ─── Upload / Drop zone ─── */
+.drop-zone {
+    border: 2px dashed #c7d2fe;
+    border-radius: 12px;
+    padding: 2.5rem 1rem;
+    text-align: center;
+    transition: .2s;
+    background: #f8fafc;
+    cursor: pointer;
+}
+.drop-zone.drag-over, .drop-zone:hover { border-color: #6366f1; background: #eef2ff; }
+.drop-zone.has-file { border-color: #22c55e; background: #f0fdf4; }
+.drop-zone svg { margin-bottom: .6rem; }
+.drop-zone p { font-size: .95rem; color: #475569; }
+.file-btn { color: #6366f1; font-weight: 600; cursor: pointer; text-decoration: underline; }
+.file-name { display: block; margin-top: .5rem; font-weight: 600; color: #16a34a; font-size: .92rem; }
+
+/* ─── Controls ─── */
+.controls-row {
+    display: flex; align-items: flex-end; gap: 1.5rem;
+    margin-top: 1.5rem; flex-wrap: wrap;
+}
+.control-group { flex: 1; min-width: 200px; }
+.control-group label { font-weight: 500; font-size: .88rem; display: block; margin-bottom: .3rem; }
+.range-wrap { display: flex; align-items: center; gap: .8rem; }
+.range-wrap input[type="range"] { flex: 1; accent-color: #6366f1; }
+.range-wrap output {
+    font-weight: 700; font-size: 1rem; background: #eef2ff; border-radius: 6px;
+    padding: .15rem .55rem; min-width: 36px; text-align: center;
+}
+
+.btn-primary {
+    display: inline-flex; align-items: center; gap: .5rem;
+    padding: .7rem 1.6rem; border: none; border-radius: 10px;
+    background: linear-gradient(135deg, #6366f1, #7c3aed);
+    color: #fff; font-weight: 600; font-size: .95rem;
+    cursor: pointer; transition: .2s; white-space: nowrap;
+}
+.btn-primary:hover:not(:disabled) { filter: brightness(1.08); transform: translateY(-1px); }
+.btn-primary:disabled { opacity: .5; cursor: not-allowed; }
+
+/* ─── Loading overlay ─── */
+.loading-overlay {
+    display: flex; flex-direction: column; align-items: center;
+    justify-content: center; gap: 1rem; padding: 3rem; text-align: center;
+}
+.spinner {
+    width: 48px; height: 48px; border: 4px solid #e2e8f0;
+    border-top-color: #6366f1; border-radius: 50%;
+    animation: spin .8s linear infinite;
+}
+@keyframes spin { to { transform: rotate(360deg); } }
+
+/* ─── Summary row ─── */
+.summary-row { display: flex; gap: 1rem; margin: 1.5rem 0; flex-wrap: wrap; }
+.stat-card {
+    flex: 1; min-width: 160px; background: #fff; border-radius: 12px;
+    padding: 1.3rem 1.5rem; text-align: center;
+    box-shadow: 0 1px 3px rgba(0,0,0,.06);
+    border-left: 4px solid #6366f1;
+}
+.stat-card.warn { border-left-color: #ef4444; }
+.stat-value { display: block; font-size: 1.9rem; font-weight: 700; color: #1e293b; }
+.stat-card.warn .stat-value { color: #dc2626; }
+.stat-label { font-size: .82rem; color: #64748b; text-transform: uppercase; letter-spacing: .04em; }
+
+/* ─── Tabs ─── */
+.tabs {
+    display: flex; gap: .25rem; margin-top: .5rem; margin-bottom: 0;
+    border-bottom: 2px solid #e2e8f0; padding-bottom: 0; flex-wrap: wrap;
+}
+.tab {
+    display: inline-flex; align-items: center; gap: .35rem;
+    padding: .65rem 1.1rem; border: none; background: transparent;
+    font-size: .88rem; font-weight: 500; color: #64748b;
+    cursor: pointer; border-bottom: 2px solid transparent;
+    margin-bottom: -2px; transition: .15s;
+}
+.tab:hover { color: #6366f1; }
+.tab.active { color: #6366f1; border-bottom-color: #6366f1; font-weight: 600; }
+
+/* ─── Tab panels ─── */
+.tab-panel { display: none; animation: fadeIn .3s ease; }
+.tab-panel.active { display: block; margin-top: 1rem; }
+@keyframes fadeIn { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: none; } }
+
+/* ─── Tables ─── */
+.table-wrap { overflow-x: auto; }
+.table { width: 100%; border-collapse: collapse; font-size: .9rem; }
+.table th {
+    background: #f1f5f9; padding: .7rem 1rem; text-align: left;
+    font-weight: 600; font-size: .82rem; text-transform: uppercase;
+    letter-spacing: .03em; color: #475569; border-bottom: 2px solid #e2e8f0;
+}
+.table td { padding: .65rem 1rem; border-bottom: 1px solid #f1f5f9; }
+.table-striped tbody tr:nth-child(even) { background: #f8fafc; }
+.table-hover tbody tr:hover { background: #eef2ff; }
+
+/* ─── Charts ─── */
+.chart-img { width: 100%; height: auto; border-radius: 8px; margin-top: .5rem; }
+
+/* ─── Footer ─── */
+footer {
+    text-align: center; padding: 1.2rem; font-size: .82rem;
+    color: #94a3b8; border-top: 1px solid #e2e8f0; margin-top: auto;
+}
+
+/* ─── Responsive ─── */
+@media (max-width: 640px) {
+    .controls-row { flex-direction: column; }
+    .summary-row { flex-direction: column; }
+    .tabs { overflow-x: auto; flex-wrap: nowrap; }
+}

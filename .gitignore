@@ -1,0 +1,22 @@
+# Virtual environments
+.venv*
+venv/
+env/
+__pycache__/
+
+# Python specific
+*.pyc
+*.pyo
+*.pyd
+
+# Jupyter
+.ipynb_checkpoints/
+
+# OS specific
+.DS_Store
+Thumbs.db
+
+# Large unnecessary files (Optional, if you wish to ignore potential outputs)
+presentation_top_5_anomalies.csv
+presentation_comparison.csv
+potential_anomalies.csv
