@@ -1,14 +1,10 @@
-"""
-Healthcare Fraud Detection — Web Interface
-Flask app that lets users upload a CSV, run the GNN-based anomaly detection,
-and view results (top anomalies, comparison table, graphs) in the browser.
-"""
+
 
 import os, io, base64, json
 import numpy as np
 import pandas as pd
 import matplotlib
-matplotlib.use("Agg")                       # non-interactive backend
+matplotlib.use("Agg")                       
 import matplotlib.pyplot as plt
 import matplotlib.patches as mpatches
 import matplotlib.cm as cm
@@ -42,9 +38,8 @@ class GCNEncoder(torch.nn.Module):
         return self.conv2(x, edge_index)
 
 
-# ---------------------------------------------------------------------------
 # Core analysis pipeline
-# ---------------------------------------------------------------------------
+
 FEATURES = [
     "Number of Services",
     "Number of Medicare Beneficiaries",
@@ -276,9 +271,9 @@ def _fig_to_b64(fig):
     return base64.b64encode(buf.read()).decode("utf-8")
 
 
-# ---------------------------------------------------------------------------
+
 # Flask app
-# ---------------------------------------------------------------------------
+
 app = Flask(__name__)
 app.config["MAX_CONTENT_LENGTH"] = 200 * 1024 * 1024   # 200 MB
 

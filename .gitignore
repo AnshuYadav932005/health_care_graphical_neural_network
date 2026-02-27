@@ -16,7 +16,9 @@ __pycache__/
 .DS_Store
 Thumbs.db
 
-# Large unnecessary files (Optional, if you wish to ignore potential outputs)
+# Large unnecessary files 
 presentation_top_5_anomalies.csv
 presentation_comparison.csv
 potential_anomalies.csv
+
+learning-goals.md
